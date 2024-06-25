@@ -101,17 +101,20 @@ html, body {
 }
 
 #createNote {
+    position: fixed;
+    margin-top: 70px;
+    z-index: 5;
     background-color: #141c16;
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 95%;
-    height: 100vh;
+    height: 750px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 0 5px 5px 5px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     animation: slideIn 0.5s ease-in;
 }
 
@@ -197,4 +200,12 @@ html, body {
     height: 30px;
     width: 40px;
     border-radius: 25px;
+}
+
+@media (max-width: 600px) {
+
+    #createNoteButton {
+        height: 50px;
+    }
+
 }

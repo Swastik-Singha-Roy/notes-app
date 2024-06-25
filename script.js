@@ -138,22 +138,22 @@ function updateNote(noteDiv, notesTitle, notesContent) {
 function saveNotes() {
     let notesContainer = document.getElementById("notesContainer");
     let notes = notesContainer.querySelectorAll('.notes-container');
-    let notesArray = [];
+    let notesArray1 = [];
 
     notes.forEach(noteDiv => {
         let title = noteDiv.querySelector('h1').innerText;
         let content = noteDiv.querySelector('h2').innerText;
-        notesArray.push({ title: title, content: content });
+        notesArray1.push({ title: title, content: content });
     });
 
-    localStorage.setItem('notes', JSON.stringify(notesArray));
+    localStorage.setItem('notes', JSON.stringify(notesArray1));
 }
 
 function loadNotes() {
     let savedNotes = localStorage.getItem('notes');
     if (savedNotes) {
-        let notesArray = JSON.parse(savedNotes);
-        notesArray.forEach(note => {
+        let notesArray1 = JSON.parse(savedNotes);
+        notesArray1.forEach(note => {
             createNote(note.title, note.content);
         });
     }

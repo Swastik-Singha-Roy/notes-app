@@ -54,6 +54,7 @@ html, body {
 }
 
 #optionsScreen {
+    z-index: 10;
     display: none;
     flex-direction: row;
     position: fixed;
@@ -103,14 +104,14 @@ html, body {
 #createNote {
     position: fixed;
     margin-top: 70px;
-    z-index: 5;
+    z-index: 2;
     background-color: #141c16;
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 95%;
-    height: 750px;
+    height: 80vh;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 0 5px 5px 5px;

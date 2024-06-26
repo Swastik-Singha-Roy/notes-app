@@ -203,6 +203,34 @@ html, body {
     border-radius: 25px;
 }
 
+#fullScreen {
+    padding: 15px;
+    position: fixed;
+    display: none;
+    z-index: 3;
+    background-color: #141c16;
+    color: #767676;
+    height: 120%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#closeFullScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: #1c1e2a;
+    background-color: #000;
+    color: #767676;
+    height: 30px;
+    width: 40px;
+    border-radius: 25px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 @media (max-width: 600px) {
 
     #createNoteButton {

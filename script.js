@@ -9,7 +9,7 @@ let currentNote = null;
 let noteDiv = null;
 
 // Load notes from localStorage when the page loads
-window.onload = function() {
+window.onload = function () {
     loadNotes();
 }
 
@@ -92,6 +92,7 @@ function handleNotesSubmit() {
 function createNote(notesTitle, notesContent) {
     console.log("Adding note to container");
     let notesContainer = document.getElementById("notesContainer");
+    let fullScreenDiv = document.getElementById("fullScreen");
     let noteDiv = document.createElement('div');
     let buttonDiv = document.createElement('div');
     buttonDiv.classList.add('button-container');
@@ -120,12 +121,43 @@ function createNote(notesTitle, notesContent) {
         showCreate(noteDiv);
     });
 
+    let fullScreen = document.createElement('button');
+    fullScreen.innerText = 'Open';
+    fullScreen.addEventListener('click', function () {
+        fullScreenDiv.style.display = 'block';
+        handleFullScreen(notesTitle, notesContent);
+    });
+
+    let closeFullScreen = document.getElementById("closeFullScreen");
+    closeFullScreen.addEventListener('click', function () {
+        fullScreenDiv.style.display = 'none';
+        handleFullScreenClose();
+    });
+
     noteDiv.appendChild(title);
     noteDiv.appendChild(content);
     buttonDiv.appendChild(deleteButton);
     buttonDiv.appendChild(editButton);
+    buttonDiv.appendChild(fullScreen);
     noteDiv.appendChild(buttonDiv);
     notesContainer.appendChild(noteDiv);
+}
+
+function handleFullScreen(notesTitle, notesContent) {
+    let fullScreen = document.getElementById("fullScreen");
+    let fullScreenNoteTitle = document.createElement('h1');
+    fullScreenNoteTitle.innerText = notesTitle;
+    let fullScreenNoteContent = document.createElement('h2');
+    fullScreenNoteContent.innerText = notesContent;
+    fullScreen.appendChild(fullScreenNoteTitle);
+    fullScreen.appendChild(fullScreenNoteContent);
+}
+
+function handleFullScreenClose() {
+    let fullScreen = document.getElementById("fullScreen");
+    fullScreen.querySelectorAll("h1, h2").forEach(element => {
+        element.innerHTML = '';
+    });
 }
 
 function updateNote(noteDiv, notesTitle, notesContent) {

@@ -107,6 +107,26 @@ function createNote(notesTitle, notesContent) {
     content.style.color = '#767676';
     content.style.fontWeight = 'normal';
 
+    isWhiteModeOn = false;
+    let whitemodeButton = document.createElement('button');
+    whitemodeButton.style.backgroundColor = 'white';
+    whitemodeButton.addEventListener('click', function () {
+        if(!isWhiteModeOn) {
+            whitemodeButton.style.backgroundColor = 'black';
+            isWhiteModeOn = true;
+            noteDiv.style.backgroundColor = 'white';
+            title.style.color = 'black';
+            content.style.color = 'black';
+        }
+        else {
+            whitemodeButton.style.backgroundColor = 'white';
+            isWhiteModeOn = false;
+            noteDiv.style.backgroundColor = '#141c16';
+            title.style.color = '#767676';
+            content.style.color = '#767676';
+        }
+    });
+
     let deleteButton = document.createElement('button');
     deleteButton.innerText = 'X';
     deleteButton.addEventListener('click', function () {
@@ -136,6 +156,7 @@ function createNote(notesTitle, notesContent) {
 
     noteDiv.appendChild(title);
     noteDiv.appendChild(content);
+    buttonDiv.appendChild(whitemodeButton);
     buttonDiv.appendChild(deleteButton);
     buttonDiv.appendChild(editButton);
     buttonDiv.appendChild(fullScreen);
